@@ -10,15 +10,19 @@ logging.basicConfig(
     datefmt='%Y-%m-%d %H:%M:%S'
 )
 
-clients = set()
+clients = {}
+global_response_number = 0
 
 
 async def handle_client(reader, writer):
+    global global_response_number
     client_address = writer.get_extra_info('peername')
-    print(f'Клиент {client_address} подключился')
+    client_id = len(clients) + 1  # Присваиваем клиенту порядковый номер
+    clients[writer] = client_id
+
+    print(f'Клиент {client_address} подключился с ID {client_id}')
 
     request_number = 0
-    clients.add(writer)
     while True:
         data = await reader.read(100)
         if not data:
@@ -28,37 +32,39 @@ async def handle_client(reader, writer):
         message = data.decode().strip()
         print(f"Получено сообщение от {client_address}: {message}")
 
+        # Логирование времени получения запроса
+        receive_time = datetime.now().strftime('%H:%M:%S.%f')[:-3]
+
         if random.random() < 0.1:
             logging.info(f"{datetime.now().strftime('%Y-%m-%d')}; "
-                         f"{datetime.now().strftime('%H:%M:%S.%f')[:-3]}; "
-                         f"{message}; (проигнорировано)")
+                         f"{receive_time}; {message}; (проигнорировано)")
             print(f"Запрос {message} проигнорирован")
             continue
 
         delay = random.uniform(0.1, 1.0)
         await asyncio.sleep(delay)
 
-        response = f"[{request_number}]/{message} PONG"
-        writer.write(response.encode())
+        response = f"[{global_response_number}]/{request_number} PONG ({client_id})"
+        writer.write((response + '\n').encode())
         await writer.drain()
 
-        logging.info(f"{datetime.now().strftime('%Y-%m-%d')}; "
-                     f"{datetime.now().strftime('%H:%M:%S.%f')[:-3]}; "
-                     f"{message}; "
-                     f"{datetime.now().strftime('%H:%M:%S.%f')[:-3]}; "
-                     f"{response}")
+        # Логирование времени отправки ответа
+        send_time = datetime.now().strftime('%H:%M:%S.%f')[:-3]
+        logging.info(f"{datetime.now().strftime('%Y-%m-%d')}; {receive_time}; {message}; {send_time}; {response}")
 
         request_number += 1
-    clients.remove(writer)
+        global_response_number += 1
+
+    del clients[writer]
     writer.close()
     await writer.wait_closed()
 
 
 async def send_keepalive():
-    response_number = 0
+    global global_response_number
     while True:
         await asyncio.sleep(5)
-        message = f"[{response_number}] keepalive"
+        message = f"[{global_response_number}] keepalive"
         print(f"Отправка keepalive-сообщения: {message}")
 
         for client in clients:
@@ -66,11 +72,9 @@ async def send_keepalive():
             await client.drain()
 
         # Логирование отправленного keepalive
-        logging.info(f"{datetime.now().strftime('%Y-%m-%d')}; ; ; "
-                     f"{datetime.now().strftime('%H:%M:%S.%f')[:-3]}; "
-                     f"{message}")
+        logging.info(f"{datetime.now().strftime('%Y-%m-%d')}; ; ; {datetime.now().strftime('%H:%M:%S.%f')[:-3]}; {message}")
 
-        response_number += 1
+        global_response_number += 1
 
 
 async def stop_server(server, delay):

@@ -12,7 +12,7 @@ logging.basicConfig(
 )
 
 
-# Корутина для подключения к серверу и отправки сообщения
+# Корутина для подключения к серверу и отправки сообщений
 async def connect_to_server(client_id):
     reader, writer = await asyncio.open_connection('127.0.0.1', 8888)
 
@@ -23,13 +23,12 @@ async def connect_to_server(client_id):
             # Отправляем PING сообщение
             message = f"[{request_number}] PING"
             print(f"Клиент {client_id} отправляет: {message}")
-            writer.write(message.encode())
+            writer.write((message + '\n').encode())
             await writer.drain()
 
             # Логирование отправленного сообщения
-            logging.info(f"{datetime.now().strftime('%Y-%m-%d')}; "
-                         f"{datetime.now().strftime('%H:%M:%S.%f')[:-3]}; "
-                         f"{message}; ")
+            send_time = datetime.now().strftime('%H:%M:%S.%f')[:-3]
+            logging.info(f"{datetime.now().strftime('%Y-%m-%d')}; {send_time}; {message}; ")
 
             # Ожидаем ответ или таймаут
             try:
@@ -71,7 +70,7 @@ async def stop_client(delay):
     print("Завершение работы клиентов...")
 
 
-# Корутина для запуска клиента
+# Корутина для запуска клиентов
 async def run_clients():
     try:
         await asyncio.gather(
