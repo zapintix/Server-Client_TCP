@@ -30,7 +30,7 @@ async def handle_client(reader, writer):
 
         if random.random() < 0.1:
             logging.info(f"{datetime.now().strftime('%Y-%m-%d')}; "
-                         f"{datetime.now().strftime('%H:%M:%S.%f')}; "
+                         f"{datetime.now().strftime('%H:%M:%S.%f')[:-3]}; "
                          f"{message}; (проигнорировано)")
             print(f"Запрос {message} проигнорирован")
             continue
@@ -43,9 +43,9 @@ async def handle_client(reader, writer):
         await writer.drain()
 
         logging.info(f"{datetime.now().strftime('%Y-%m-%d')}; "
-                     f"{datetime.now().strftime('%H:%M:%S.%f')}; "
+                     f"{datetime.now().strftime('%H:%M:%S.%f')[:-3]}; "
                      f"{message}; "
-                     f"{datetime.now().strftime('%H:%M:%S.%f')}; "
+                     f"{datetime.now().strftime('%H:%M:%S.%f')[:-3]}; "
                      f"{response}")
 
         request_number += 1
@@ -60,9 +60,16 @@ async def send_keepalive():
         await asyncio.sleep(5)
         message = f"[{response_number}] keepalive"
         print(f"Отправка keepalive-сообщения: {message}")
+
         for client in clients:
-            client.write(message.encode() + b'\n')
+            client.write((message + '\n').encode())
             await client.drain()
+
+        # Логирование отправленного keepalive
+        logging.info(f"{datetime.now().strftime('%Y-%m-%d')}; ; ; "
+                     f"{datetime.now().strftime('%H:%M:%S.%f')[:-3]}; "
+                     f"{message}")
+
         response_number += 1
 
 

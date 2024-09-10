@@ -28,7 +28,7 @@ async def connect_to_server(client_id):
 
             # Логирование отправленного сообщения
             logging.info(f"{datetime.now().strftime('%Y-%m-%d')}; "
-                         f"{datetime.now().strftime('%H:%M:%S')}; "
+                         f"{datetime.now().strftime('%H:%M:%S.%f')[:-3]}; "
                          f"{message}; ")
 
             # Ожидаем ответ или таймаут
@@ -41,18 +41,18 @@ async def connect_to_server(client_id):
                     print(f"Клиент {client_id} получил keepalive: {response}")
 
                     # Логирование keepalive сообщения
-                    logging.info(f"; ; ; {datetime.now().strftime('%H:%M:%S')}; {response}")
+                    logging.info(f"; ; ; {datetime.now().strftime('%H:%M:%S.%f')[:-3]}; {response}")
                 else:
                     print(f"Клиент {client_id} получил: {response}")
 
                     # Логирование обычного ответа
-                    logging.info(f"; {datetime.now().strftime('%H:%M:%S')}; {response}")
+                    logging.info(f"; {datetime.now().strftime('%H:%M:%S.%f')[:-3]}; {response}")
 
             except asyncio.TimeoutError:
                 print(f"Клиент {client_id}: таймаут")
 
                 # Логирование таймаута
-                logging.info(f"; {datetime.now().strftime('%H:%M:%S')}; (таймаут)")
+                logging.info(f"; {datetime.now().strftime('%H:%M:%S.%f')[:-3]}; (таймаут)")
 
             request_number += 1
 
