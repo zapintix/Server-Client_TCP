@@ -1223,3 +1223,101 @@
 2024-09-10 20:28:00; 2024-09-10; 20:28:00.143; [15] PING; 
 2024-09-10 20:28:00; ; ; ; 20:28:00.145; [34]/13 PONG (1)
 [35] keepalive
+2024-09-10 20:31:51; 2024-09-10; 20:31:51.047; [0] PING; 
+2024-09-10 20:31:51; 2024-09-10; 20:31:51.048; [0] PING; 
+2024-09-10 20:31:51; ; ; ; 20:31:51.271; [0] keepalive
+2024-09-10 20:31:51; ; ; ; 20:31:51.272; [0] keepalive
+2024-09-10 20:31:52; 2024-09-10; 20:31:52.566; [1] PING; 
+2024-09-10 20:31:52; ; 20:31:52.567; [1]/0 PONG (1)
+2024-09-10 20:31:53; 2024-09-10; 20:31:53.395; [1] PING; 
+2024-09-10 20:31:53; ; 20:31:53.647; [3]/0 PONG (2)
+2024-09-10 20:31:53; 2024-09-10; 20:31:53.769; [2] PING; 
+2024-09-10 20:31:53; ; 20:31:53.772; [2]/1 PONG (1)
+2024-09-10 20:31:55; 2024-09-10; 20:31:55.592; [3] PING; 
+2024-09-10 20:31:55; ; 20:31:55.595; [4]/2 PONG (1)
+2024-09-10 20:31:56; 2024-09-10; 20:31:56.590; [2] PING; 
+2024-09-10 20:31:56; ; ; ; 20:31:56.592; [6] keepalive
+2024-09-10 20:31:58; 2024-09-10; 20:31:58.217; [3] PING; 
+2024-09-10 20:31:58; ; 20:31:58.219; [7]/1 PONG (2)
+2024-09-10 20:31:58; 2024-09-10; 20:31:58.385; [4] PING; 
+2024-09-10 20:31:58; ; ; ; 20:31:58.387; [5]/3 PONG (1)
+[6] keepalive
+2024-09-10 20:31:59; 2024-09-10; 20:31:59.101; [5] PING; 
+2024-09-10 20:31:59; ; 20:31:59.102; [8]/4 PONG (1)
+2024-09-10 20:32:00; 2024-09-10; 20:32:00.438; [4] PING; 
+2024-09-10 20:32:00; ; 20:32:00.439; [9]/2 PONG (2)
+2024-09-10 20:32:00; 2024-09-10; 20:32:00.736; [6] PING; 
+2024-09-10 20:32:00; ; 20:32:00.738; [10]/5 PONG (1)
+2024-09-10 20:32:01; 2024-09-10; 20:32:01.689; [7] PING; 
+2024-09-10 20:32:01; ; ; ; 20:32:01.693; [12] keepalive
+[13]/6 PONG (1)
+2024-09-10 20:32:03; 2024-09-10; 20:32:03.213; [5] PING; 
+2024-09-10 20:32:03; ; ; ; 20:32:03.214; [11]/3 PONG (2)
+[12] keepalive
+2024-09-10 20:32:04; 2024-09-10; 20:32:04.119; [6] PING; 
+2024-09-10 20:32:04; ; 20:32:04.122; [15]/4 PONG (2)
+2024-09-10 20:32:04; 2024-09-10; 20:32:04.400; [8] PING; 
+2024-09-10 20:32:04; ; 20:32:04.410; [14]/7 PONG (1)
+2024-09-10 20:32:04; 2024-09-10; 20:32:04.618; [7] PING; 
+2024-09-10 20:32:04; ; 20:32:04.620; [16]/5 PONG (2)
+2024-09-10 20:32:05; 2024-09-10; 20:32:05.476; [9] PING; 
+2024-09-10 20:32:05; 2024-09-10; 20:32:05.819; [8] PING; 
+2024-09-10 20:32:05; ; 20:32:05.821; [17]/6 PONG (2)
+2024-09-10 20:32:05; ; 20:32:05.902; [18]/8 PONG (1)
+2024-09-10 20:32:06; 2024-09-10; 20:32:06.743; [9] PING; 
+2024-09-10 20:32:06; ; ; ; 20:32:06.746; [19] keepalive
+[20]/7 PONG (2)
+2024-09-10 20:32:06; 2024-09-10; 20:32:06.943; [10] PING; 
+2024-09-10 20:32:06; ; ; ; 20:32:06.943; [19] keepalive
+2024-09-10 20:32:09; 2024-09-10; 20:32:09.151; [10] PING; 
+2024-09-10 20:32:09; ; 20:32:09.153; [21]/8 PONG (2)
+2024-09-10 20:32:09; 2024-09-10; 20:32:09.802; [11] PING; 
+2024-09-10 20:32:09; ; 20:32:09.804; [22]/9 PONG (1)
+2024-09-10 20:32:10; 2024-09-10; 20:32:10.450; [11] PING; 
+2024-09-10 20:32:10; ; 20:32:10.452; [23]/9 PONG (2)
+2024-09-10 20:32:10; 2024-09-10; 20:32:10.716; [12] PING; 
+2024-09-10 20:32:10; ; 20:32:10.718; [24]/10 PONG (1)
+2024-09-10 20:32:12; 2024-09-10; 20:32:12.038; [12] PING; 
+2024-09-10 20:32:12; ; ; ; 20:32:12.039; [25]/10 PONG (2)
+[26] keepalive
+2024-09-10 20:32:12; 2024-09-10; 20:32:12.956; [13] PING; 
+2024-09-10 20:32:12; ; 20:32:12.957; [28]/11 PONG (2)
+2024-09-10 20:32:13; 2024-09-10; 20:32:13.454; [14] PING; 
+2024-09-10 20:32:13; ; 20:32:13.456; [29]/12 PONG (2)
+2024-09-10 20:32:13; 2024-09-10; 20:32:13.595; [13] PING; 
+2024-09-10 20:32:13; Task exception was never retrieved
+future: <Task finished name='Task-1' coro=<run_clients() done, defined at D:\Test\client_connect.py:74> exception=KeyboardInterrupt()>
+Traceback (most recent call last):
+  File "D:\Test\client_connect.py", line 85, in <module>
+    asyncio.run(run_clients())
+  File "C:\Users\fedor\AppData\Local\Programs\Python\Python310\lib\asyncio\runners.py", line 47, in run
+    _cancel_all_tasks(loop)
+  File "C:\Users\fedor\AppData\Local\Programs\Python\Python310\lib\asyncio\runners.py", line 63, in _cancel_all_tasks
+    loop.run_until_complete(tasks.gather(*to_cancel, return_exceptions=True))
+  File "C:\Users\fedor\AppData\Local\Programs\Python\Python310\lib\asyncio\base_events.py", line 633, in run_until_complete
+    self.run_forever()
+  File "C:\Users\fedor\AppData\Local\Programs\Python\Python310\lib\asyncio\windows_events.py", line 321, in run_forever
+    super().run_forever()
+  File "C:\Users\fedor\AppData\Local\Programs\Python\Python310\lib\asyncio\base_events.py", line 600, in run_forever
+    self._run_once()
+  File "C:\Users\fedor\AppData\Local\Programs\Python\Python310\lib\asyncio\base_events.py", line 1896, in _run_once
+    handle._run()
+  File "C:\Users\fedor\AppData\Local\Programs\Python\Python310\lib\asyncio\events.py", line 80, in _run
+    self._context.run(self._callback, *self._args)
+  File "D:\Test\client_connect.py", line 76, in run_clients
+    await asyncio.gather(
+  File "C:\Users\fedor\AppData\Local\Programs\Python\Python310\lib\asyncio\runners.py", line 44, in run
+    return loop.run_until_complete(main)
+  File "C:\Users\fedor\AppData\Local\Programs\Python\Python310\lib\asyncio\base_events.py", line 633, in run_until_complete
+    self.run_forever()
+  File "C:\Users\fedor\AppData\Local\Programs\Python\Python310\lib\asyncio\windows_events.py", line 321, in run_forever
+    super().run_forever()
+  File "C:\Users\fedor\AppData\Local\Programs\Python\Python310\lib\asyncio\base_events.py", line 600, in run_forever
+    self._run_once()
+  File "C:\Users\fedor\AppData\Local\Programs\Python\Python310\lib\asyncio\base_events.py", line 1896, in _run_once
+    handle._run()
+  File "C:\Users\fedor\AppData\Local\Programs\Python\Python310\lib\asyncio\events.py", line 80, in _run
+    self._context.run(self._callback, *self._args)
+  File "D:\Test\client_connect.py", line 40, in connect_to_server
+    print(f"Клиент {client_id} получил keepalive: {response}")
+KeyboardInterrupt

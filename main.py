@@ -23,41 +23,43 @@ async def handle_client(reader, writer):
     print(f'Клиент {client_address} подключился с ID {client_id}')
 
     request_number = 0
-    while True:
-        data = await reader.read(100)
-        if not data:
-            print(f"Клиент {client_address} отключился")
-            break
+    try:
+        while True:
+            data = await reader.read(100)
+            if not data:
+                print(f"Клиент {client_address} отключился")
+                break
 
-        message = data.decode().strip()
-        print(f"Получено сообщение от {client_address}: {message}")
+            message = data.decode().strip()
+            print(f"Получено сообщение от {client_address}: {message}")
 
-        # Логирование времени получения запроса
-        receive_time = datetime.now().strftime('%H:%M:%S.%f')[:-3]
+            # Логирование времени получения запроса
+            receive_time = datetime.now().strftime('%H:%M:%S.%f')[:-3]
 
-        if random.random() < 0.1:
-            logging.info(f"{datetime.now().strftime('%Y-%m-%d')}; "
-                         f"{receive_time}; {message}; (проигнорировано)")
-            print(f"Запрос {message} проигнорирован")
-            continue
+            if random.random() < 0.1:
+                logging.info(f"{datetime.now().strftime('%Y-%m-%d')}; "
+                             f"{receive_time}; {message}; (проигнорировано)")
+                print(f"Запрос {message} проигнорирован")
+                continue
 
-        delay = random.uniform(0.1, 1.0)
-        await asyncio.sleep(delay)
+            delay = random.uniform(0.1, 1.0)
+            await asyncio.sleep(delay)
 
-        response = f"[{global_response_number}]/{request_number} PONG ({client_id})"
-        writer.write((response + '\n').encode())
-        await writer.drain()
+            response = f"[{global_response_number}]/{request_number} PONG ({client_id})"
+            writer.write((response + '\n').encode())
+            await writer.drain()
 
-        # Логирование времени отправки ответа
-        send_time = datetime.now().strftime('%H:%M:%S.%f')[:-3]
-        logging.info(f"{datetime.now().strftime('%Y-%m-%d')}; {receive_time}; {message}; {send_time}; {response}")
+            # Логирование времени отправки ответа
+            send_time = datetime.now().strftime('%H:%M:%S.%f')[:-3]
+            logging.info(f"{datetime.now().strftime('%Y-%m-%d')}; {receive_time}; {message}; {send_time}; {response}")
 
-        request_number += 1
-        global_response_number += 1
-
-    del clients[writer]
-    writer.close()
-    await writer.wait_closed()
+            request_number += 1
+            global_response_number += 1
+    finally:
+        # Удаление клиента при отключении
+        del clients[writer]
+        writer.close()
+        await writer.wait_closed()
 
 
 async def send_keepalive():
